@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  enviar_mail:
+    build: enviar_email
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production  # Ejemplo de variable de entorno, opcional
+    command: ["./start.sh", "--smtp-host", "smtp.example.com", "--smtp-port", "587", "--smtp-username", "user@example.com", "--smtp-password", "secretpassword"]
+    restart: always
